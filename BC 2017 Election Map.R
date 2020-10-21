@@ -41,3 +41,12 @@ winners_2017<-voting %>%
    theme(legend.position="bottom")
 
 
+
+ ggplot(data.sim,aes(fill=AFFILIATION))+
+    geom_sf()+
+    coord_sf(xlim=c(-125,-122),ylim=c(48.25,49.75))+
+    scale_fill_manual(name="",values=c("springgreen3","red", "Orange"))+
+    labs(title="British Columbia: 2017 Election Results:\n Victoria and Vancouver")+
+    theme(legend.position="bottom")
+
+
