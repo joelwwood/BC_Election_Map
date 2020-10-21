@@ -3,7 +3,6 @@ library(sf)
 library(tidyverse)
 library(rmapshaper)
 
-data<-st_read("edsre2015/edsre2015.shp") #electoral districts found at https://catalogue.data.gov.bc.ca/dataset?q=Provincial+Electoral+Districts
 
 #Download shapefile of BC Electoral District Boundaries
 temp <- tempfile()
@@ -32,13 +31,13 @@ winners_2017<-voting %>%
 #Merge with the Electoral District info
  data.sim<-data.sim %>%
    inner_join(winners_2017, by="ED_ABBREV")
- 
- 
+
+
  ggplot(data.sim,aes(fill=AFFILIATION))+
    geom_sf()+
    coord_sf()+
    scale_fill_manual(name="",values=c("springgreen3","red", "Orange"))+
    labs(title="British Columbia \n 2017 Election Results")+
    theme(legend.position="bottom")
-   
-    
+
+
